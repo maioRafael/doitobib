@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DoiToBib</title>
+    <style>
+        .margin2{
+            margin:2em 0;
+        }
+        .fullwidth{
+            width: 100%;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>DoiToBib</h1>
+    <form action="POST" id="form">
+        <div class="margin2">
+            <label for="checkbox">Multiple</label>
+            <input type="checkbox" id="checkbox" name="checkbox">
+        </div>
+        <div class="margin2" id="text-wrapper">
+            <label for="text">DOI</label>
+            <input type="text" id="text" name="text">
+
+        </div>
+        <div class="margin2 hidden" id="file-wrapper">
+            <label for="file">DOI List File</label>
+            <br>
+            <input type="file" multiple="false" id="file" name="file"  accept="text/plain">
+        </div>
+        <button>OK</button>
+    </form>
+    <div class="margin2">
+        <label for="bib">Result:</label>
+        <textarea name="bib" id="bib" cols="30" rows="30" class="fullwidth"></textarea>
+    </div>
+    <script src="js/axios.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
