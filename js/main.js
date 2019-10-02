@@ -22,7 +22,7 @@ const onFormSubmit = async function(event){
     } else {
         readText();
     }
-    }
+}
 const readFile = function(){
     var reader = new FileReader();
     reader.onload = function(){
@@ -30,13 +30,12 @@ const readFile = function(){
         doiToBib();
     };
     reader.readAsText(file);
-    
 }
 const doiToBib = async function(){
     var bib_list = "";
     for(let i of doi_list){
-        let api_endpoint = api_url.replace("DOI-HERE",i.replace("https://doi.org/",""))
-        var res = await axios.get(api_endpoint);
+        let final_url = api_url.replace("DOI-HERE",i.replace("https://doi.org/",""))
+        var res = await axios.get(final_url);
         bib_list += res.data + "\n"
     }
     var bib_text_area = document.querySelector("#bib");
